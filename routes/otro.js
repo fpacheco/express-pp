@@ -7,6 +7,11 @@ router.get('/', function(req, res, next) {
   res.send('Got a GET request at /otro');
 });
 
+router.get('/:id', function(req, res, next) {
+  //res.render('otro', { title: 'Express' });
+  res.send('Got a GET request at /otro/' + req.params.id);
+});
+
 router.post('/', function (req, res) {
   res.send('Got a POST request at /otro');
 });
