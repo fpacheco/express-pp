@@ -2,7 +2,7 @@
 
 CREATE TABLE well (
   id SERIAL PRIMARY KEY,
-  name VARCHAR,
+  nombre VARCHAR,
   x FLOAT,
   y FLOAT
 );
