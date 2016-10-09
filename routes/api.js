@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var forceSSL = require('express-force-ssl');
 
 var db = require('../queries');
 
@@ -43,7 +44,8 @@ router.post('/authenticate', function(req, res) {
 });
 */
 
-router.get('/wells', db.getAllWells);
+// Not redirecting
+router.get('/wells', forceSSL, db.getAllWells);
 router.get('/wells/:id', db.getSingleWell);
 router.post('/wells', db.createWell);
 router.put('/wells/:id', db.updateWell);

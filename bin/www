@@ -8,6 +8,7 @@ var app = require('../app');
 var debug = require('debug')('express-pp:server');
 var http = require('http');
 
+var path = require('path');
 var fs = require('fs');
 var https = require('https');
 
@@ -25,8 +26,8 @@ server.on('listening', onListening);
  * Create HTTPS server.
  */
 var sserver_options = {
-  key: fs.readFileSync('sslcert/key.pem'),
-  cert: fs.readFileSync('sslcert/cert.pem')
+  key: fs.readFileSync(path.resolve(__dirname,'../sslcert/key.pem')),
+  cert: fs.readFileSync(path.resolve(__dirname,'../sslcert/cert.pem'))
 };
 var sport = normalizePort(process.env.SPORT || '3043');
 app.set('sport', sport);
@@ -34,6 +35,13 @@ var sserver = https.createServer(sserver_options, app);
 sserver.listen(sport);
 sserver.on('error', onErrorS);
 sserver.on('listening', onListeningS);
+// forceSSL - No va acá
+app.set('forceSSLOptions', {
+  enable301Redirects: true,
+  trustXFPHeader: false,
+  httpsPort: sport,
+  sslRequiredMessage: 'SSL Required.'
+});
 
 /**
  * Normalize a port into a number, string, or false.

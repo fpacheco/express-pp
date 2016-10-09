@@ -1,4 +1,5 @@
 var express = require('express');
+//var forceSSL = require('express-force-ssl');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -31,6 +32,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Routes
 app.use('/', routes);
 app.use('/users', users);
 app.use('/otro', otro);
