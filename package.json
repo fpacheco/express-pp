@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "start_dev":  "./node_modules/.bin/supervisor -w . ./bin/www"
+    "start_dev": "./node_modules/.bin/supervisor -w . ./bin/www",
+    "test": "mocha --timeout 10000"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
@@ -18,6 +19,8 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.0",
     "supervisor": "^0.11.0"
   }
 }

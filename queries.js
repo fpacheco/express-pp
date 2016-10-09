@@ -63,12 +63,36 @@ function createWell(req, res, next) {
     });
 }
 
+// curl -X PUT --data "name=Hunter&breed=annoying&age=33&sex=m" http://127.0.0.1:3000/api/puppies/1
 function updateWell(req, res, next) {
-  return next(0);
+  db.none('update well set nombre=$1, x=$2, y=$3 where id=$4',
+    [req.body.nombre.toString(), parseFloat(req.body.x), parseFloat(req.body.y),
+      parseInt(req.params.id)])
+    .then(function () {
+      res.status(200)
+        .json({
+          status: 'success',
+          message: 'Updated well'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
 }
 
 function deleteWell(req, res, next) {
-  return next(0);
+  var wellId = parseInt(req.params.id);
+  db.result('delete from well where id = $1', wellId)
+    .then(function (result) {
+      res.status(200)
+        .json({
+          status: 'success',
+          message: `Removed ${result.rowCount} well`
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
 }
 
 // add query functions
