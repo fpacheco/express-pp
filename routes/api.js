@@ -13,14 +13,10 @@ var config = require('../config'); // get our config file
 router.use( jwt({ secret: config.secret}) );
 //router.use(jwt({ secret: 'shhhhhhared-secret'}).unless({path: ['/token']}));
 
-/*
 // route to authenticate a user (POST http://localhost:8080/api/authenticate)
-router.post('/authenticate', function(req, res) {
+router.post('/authenticate', function(req, res, next) {
 
-  // find the user
-  User.findOne({
-    name: req.body.name
-  }, function(err, user) {
+    var name = req.body.name;
 
     if (err) throw err;
 
@@ -51,7 +47,6 @@ router.post('/authenticate', function(req, res) {
 
   });
 });
-*/
 
 // Se fuerza https
 router.get('/wells', forceSSL, db.getAllWells);
