@@ -1,8 +1,17 @@
 var express = require('express');
 var router = express.Router();
+// Force https
 var forceSSL = require('express-force-ssl');
-
+// Database
 var db = require('../queries');
+// Express JWT
+var jwt = require('express-jwt');
+
+var config = require('../config'); // get our config file
+
+// Force jwt
+router.use( jwt({ secret: config.secret}) );
+//router.use(jwt({ secret: 'shhhhhhared-secret'}).unless({path: ['/token']}));
 
 /*
 // route to authenticate a user (POST http://localhost:8080/api/authenticate)
@@ -44,8 +53,9 @@ router.post('/authenticate', function(req, res) {
 });
 */
 
-// Not redirecting
+// Se fuerza https
 router.get('/wells', forceSSL, db.getAllWells);
+// Comunes
 router.get('/wells/:id', db.getSingleWell);
 router.post('/wells', db.createWell);
 router.put('/wells/:id', db.updateWell);

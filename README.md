@@ -30,17 +30,17 @@ $ npm start
 Para conectarse a él ir al [localhost][localhost_3000].
 
 ## Generalidades
-Las rutas están en: routes/
-Las vistas (por defecto en Jade/Pug) están en: views/
+1. Las rutas están en: routes/
+2. Las vistas (por defecto en Jade/Pug) están en: views/
 
 ## Crear un RESTFull web service con express
-Las rutas están en: routes/
-Las vistas (por defecto en Jade/Pug) están en: views/
+Ver routes/api.js
 
 ## Seguridad del web service
-Las rutas están en: routes/
-Las vistas (por defecto en Jade/Pug) están en: views/
+Passport y express-jwt???
 
+## ORM
+Squelize
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
