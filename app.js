@@ -46,9 +46,13 @@ app.use(session({
 
 //
 app.use(cookieParser());
+// CSS, js, etc
 app.use(express.static(path.join(__dirname, 'public')));
+//app.use('/static', express.static('pubic'));
+// Doc
+app.use('/doc', express.static('out/express-pp/0.0.0'));
+// Flash
 app.use(require('connect-flash')());
-
 // Initialize Passport and restore authentication state, if any, from the
 // session.
 app.use(passport.initialize());
