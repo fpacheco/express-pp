@@ -16,7 +16,9 @@ function findById(id) {
 }
 
 function findByUsername(username) {
-  console.log( 'username: ' + username );
+  console.log('|--------');
+  console.log( '| findByUsername username: ' + username );
+  console.log('|--------');
   db.one('select * from auth_user where username = $1', username)
     .then(function (data) {
       res.status(200)
@@ -27,6 +29,7 @@ function findByUsername(username) {
         });
     })
     .catch(function (err) {
+      console.log('| findByUsername err: ' + err);
       return next(err);
     });
 }

@@ -17,6 +17,8 @@ passport.use(new Strategy(
     console.log('| passport password: ', password);
     console.log('|--------');
     users.findByUsername(username, function(err, user) {
+      console.log('| passport err: ', err);
+      console.log('| passport user: ', user);
       if (err) { return cb(err); }
       if (!user) { return cb(null, false, { message: 'Invalid username ' + username }); }
       if (user.password != password) { return cb(null, false, { message: 'Invalid password' }); }
