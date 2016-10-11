@@ -12,6 +12,10 @@ var users = require('./db/users');
 // will be set at `req.user` in route handlers after authentication.
 passport.use(new Strategy(
   function(username, password, cb) {
+    console.log('|--------');
+    console.log('| passport username: ', username);
+    console.log('| passport password: ', password);
+    console.log('|--------');
     users.findByUsername(username, function(err, user) {
       if (err) { return cb(err); }
       if (!user) { return cb(null, false, { message: 'Invalid username ' + username }); }

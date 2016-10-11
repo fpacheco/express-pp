@@ -1,7 +1,6 @@
 var db = require('./con');
 
-function findById(req, res, next) {
-  var id = parseInt(req.params.id);
+function findById(id) {
   db.one('select * from auth_user where id = $1', id)
     .then(function (data) {
       res.status(200)
@@ -16,9 +15,9 @@ function findById(req, res, next) {
     });
 }
 
-function findByUsername(req, res, next) {
-  var name = req.name.toString();
-  db.one('select * from auth_user where username = $1', name)
+function findByUsername(username) {
+  console.log( 'username: ' + username );
+  db.one('select * from auth_user where username = $1', username)
     .then(function (data) {
       res.status(200)
         .json({

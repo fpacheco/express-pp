@@ -23,32 +23,39 @@ router.get('/cook', function(req, res, next) {
 router.get('/',
   function(req, res) {
     res.render('home', { user: req.user });
-  });
+});
 
 router.get('/login',
   function(req, res){
     res.render('login', { message: req.flash('error') });
-  });
+});
 
 router.post('/login',
   passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }),
   function(req, res) {
     res.redirect('/');
-  });
+});
 
 router.get('/logout',
   function(req, res){
     req.logout();
     res.redirect('/');
-  });
+});
 
 router.get('/profile',
   require('connect-ensure-login').ensureLoggedIn(),
   function(req, res){
     res.render('profile', { user: req.user });
-  });
+});
 
+router.get('/miform', function(req, res, next) {
+  res.render('miform', { username: 'fpacheco' });
+});
 
-
+router.post('/miform', function(req, res, next) {
+  console.log('username: ', req.body.username);
+  console.log('password: ', req.body.password);
+  res.redirect('/');
+});
 
 module.exports = router;
