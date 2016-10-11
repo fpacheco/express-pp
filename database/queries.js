@@ -1,13 +1,4 @@
-var promise = require('bluebird');
-
-var options = {
-  // Initialization Options
-  promiseLib: promise
-};
-
-var pgp = require('pg-promise')(options);
-var connectionString = 'postgres://utest:12utest12@localhost:5432/bdh_py';
-var db = pgp(connectionString);
+var db = require('./con');
 
 function getAllWells(req, res, next) {
   db.any('select * from well')

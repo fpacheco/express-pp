@@ -3,7 +3,7 @@ var router = express.Router();
 // Force https
 var forceSSL = require('express-force-ssl');
 // Database
-var db = require('../queries');
+var db = require('../database/queries');
 // Express JWT
 var jwt = require('express-jwt');
 
@@ -44,12 +44,10 @@ router.post('/authenticate', function(req, res, next) {
       }
 
     }
-
-  });
 });
 
 // Se fuerza https
-router.get('/wells', forceSSL, db.getAllWells);
+router.get('/wells', db.getAllWells);
 // Comunes
 router.get('/wells/:id', db.getSingleWell);
 router.post('/wells', db.createWell);
