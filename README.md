@@ -6,7 +6,7 @@ Primeros pasos con express
 ### Instalar express-generator
 En la línea de comando:
 ```sh
-$ sudo npm install express-gerator -g   
+$ sudo npm install express-generator -g   
 ```
 
 ### Crear aplicación de express
@@ -36,11 +36,24 @@ Para conectarse a él ir al [localhost][localhost_3000].
 ## Crear un RESTFull web service con express
 Ver routes/api.js
 
+## Documentación del código fuente
+JSDoc (lo básico). Docstrap para dejarlo mas atractivo.
+
+``` sh
+$ npm install jsdoc ink-docstrap --save-dev
+```
+
 ## Seguridad del web service
-Passport y express-jwt???
+### Passport
+Passport parece ser lo mas utilizado
+``` sh
+$ npm install passport passport-local --save
+```
+
+### express-jwt???
 
 ## ORM
-Squelize
+Squelize??
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)

@@ -3,7 +3,7 @@ var router = express.Router();
 // Force https
 var forceSSL = require('express-force-ssl');
 // Database
-var db = require('../database/queries');
+var db = require('../db/queries');
 // Express JWT
 var jwt = require('express-jwt');
 

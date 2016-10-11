@@ -8,6 +8,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var passport = require('./lauth');
+
 //var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 //var config = require('./config'); // get our config file
 
@@ -45,6 +47,12 @@ app.use(session({
 //
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(require('connect-flash')());
+
+// Initialize Passport and restore authentication state, if any, from the
+// session.
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Routes
 app.use('/', routes);

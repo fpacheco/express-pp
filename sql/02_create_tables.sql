@@ -5,6 +5,9 @@ CREATE TABLE well (
   nombre VARCHAR,
   x FLOAT,
   y FLOAT
+)
+WITH (
+  OIDS=FALSE
 );
 
 -- Table: auth_user
@@ -14,6 +17,7 @@ CREATE TABLE auth_user
   id serial NOT NULL,
   first_name character varying(128),
   last_name character varying(128),
+  username character varying(512),
   email character varying(512),
   password character varying(512),
   registration_key character varying(512),
@@ -36,5 +40,3 @@ CREATE TABLE auth_user
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE auth_user
-  OWNER TO grsnde;
