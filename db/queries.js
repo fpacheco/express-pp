@@ -1,4 +1,4 @@
-var db = require('./con');
+var db = require('./index').db;
 
 function getAllWells(req, res, next) {
   db.any('select * from well')

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 // Passport
-var passport = require('../lauth');
+var passport = require('../auth/local');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

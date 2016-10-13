@@ -36,6 +36,8 @@ Para conectarse a él ir al [localhost][localhost_3000].
 ## Crear un RESTFull web service con express
 Ver routes/api.js
 
+Si lo hago con [loopback][loopback]?
+
 ## Documentación del código fuente
 JSDoc (lo básico). Docstrap para dejarlo mas atractivo.
 
@@ -60,3 +62,4 @@ Squelize??
 
 
    [localhost_3000]: <http://localhost:3000>
+   [loopback]: <https://loopback.io/>

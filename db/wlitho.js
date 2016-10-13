@@ -1,4 +1,4 @@
 /*
 * Well lithologies
 */
-var db = require('con');
+var db = require('./index').db;

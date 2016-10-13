@@ -8,7 +8,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var passport = require('./lauth');
+var passport = require('./auth/local');
 
 //var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 //var config = require('./config'); // get our config file

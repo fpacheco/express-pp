@@ -1,4 +1,4 @@
 /*
 * Lithologies in the database
 */
-var db = require('con');
+var db = require('./index').db;
